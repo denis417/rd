@@ -98,7 +98,7 @@ if (WIN32)
     elseif ("${CMAKE_SIZEOF_VOID_P}" STREQUAL "8")
         SET(PLATFORM "x64")
     endif ()
-    install(TARGETS rd_framework_cpp rd_core_cpp
+    install(TARGETS rd_framework_cpp rd_core_cpp spdlog
             CONFIGURATIONS Release Debug
             ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBS}/Win/${PLATFORM}/$<CONFIG>/"
             RUNTIME DESTINATION "${CMAKE_INSTALL_LIBS}/Win/${PLATFORM}/$<CONFIG>/"
