@@ -7,6 +7,8 @@
 
 #include <memory>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
 // region predeclared
@@ -19,7 +21,7 @@ class InternRoot;
 /**
  * \brief Top level node in the object graph. It stores [SerializationCtx] for polymorphic "SerDes"
  */
-class Protocol : /*IRdDynamic, */ public IProtocol
+class RD_FRAMEWORK_API Protocol : /*IRdDynamic, */ public IProtocol
 {
 	constexpr static string_view InternRootName{"ProtocolInternRoot"};
 

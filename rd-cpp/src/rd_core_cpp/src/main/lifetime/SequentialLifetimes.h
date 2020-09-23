@@ -4,9 +4,11 @@
 #include "lifetime/LifetimeDefinition.h"
 #include "lifetime/Lifetime.h"
 
+#include <rd_core_export.h>
+
 namespace rd
 {
-class SequentialLifetimes
+class RD_CORE_API SequentialLifetimes
 {
 private:
 	std::shared_ptr<LifetimeDefinition> current_def = LifetimeDefinition::get_shared_eternal();

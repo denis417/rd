@@ -6,9 +6,11 @@
 
 #include "thirdparty.hpp"
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
-class RdBindableBase : public virtual IRdBindable /*, IPrintable*/
+class RD_FRAMEWORK_API RdBindableBase : public virtual IRdBindable /*, IPrintable*/
 {
 protected:
 	mutable optional<Lifetime> bind_lifetime;

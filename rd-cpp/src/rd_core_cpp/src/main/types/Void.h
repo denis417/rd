@@ -4,19 +4,21 @@
 #include <functional>
 #include <string>
 
+#include <rd_core_export.h>
+
 namespace rd
 {
 /**
  * \brief For using in idle events
  */
-class Void
+class RD_CORE_API Void
 {
-	friend bool operator==(const Void& lhs, const Void& rhs);
+	friend bool RD_CORE_API operator==(const Void& lhs, const Void& rhs);
 
-	friend bool operator!=(const Void& lhs, const Void& rhs);
+	friend bool RD_CORE_API operator!=(const Void& lhs, const Void& rhs);
 };
 
-std::string to_string(Void const&);
+std::string RD_CORE_API to_string(Void const&);
 }	 // namespace rd
 
 namespace std

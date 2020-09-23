@@ -9,9 +9,11 @@
 
 #include <queue>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
-class Mq
+class RD_FRAMEWORK_API Mq
 {
 public:
 	// region ctor/dtor
@@ -31,7 +33,7 @@ public:
 	std::vector<Buffer> custom_scheduler_messages;
 };
 
-class MessageBroker final
+class RD_FRAMEWORK_API MessageBroker final
 {
 private:
 	IScheduler* default_scheduler = nullptr;

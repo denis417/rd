@@ -3,6 +3,8 @@
 
 #include <unordered_set>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
 // region predeclared
@@ -10,7 +12,7 @@ namespace rd
 class Serializers;
 // endregion
 
-class ISerializersOwner
+class RD_FRAMEWORK_API ISerializersOwner
 {
 	mutable std::unordered_set<Serializers const*> used;
 

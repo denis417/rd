@@ -3,9 +3,11 @@
 
 #include "protocol/Buffer.h"
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
-class PkgInputStream
+class RD_FRAMEWORK_API PkgInputStream
 {
 private:
 	Buffer buffer;

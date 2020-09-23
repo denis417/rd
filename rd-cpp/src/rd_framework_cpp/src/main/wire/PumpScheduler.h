@@ -7,13 +7,15 @@
 #include <thread>
 #include <queue>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
 namespace test
 {
 namespace util
 {
-class PumpScheduler : public IScheduler
+class RD_FRAMEWORK_API PumpScheduler : public IScheduler
 {
 public:
 	std::string name;

@@ -7,6 +7,8 @@
 
 #include <utility>
 
+#include <rd_framework_export.h>
+
 namespace ctpl
 {
 class thread_pool;
@@ -14,7 +16,7 @@ class thread_pool;
 
 namespace rd
 {
-class SingleThreadSchedulerBase : public IScheduler
+class RD_FRAMEWORK_API SingleThreadSchedulerBase : public IScheduler
 {
 protected:
 	std::shared_ptr<spdlog::logger> log;

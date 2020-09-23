@@ -1,6 +1,5 @@
 #lib
-
-add_library(rd_framework_cpp STATIC
+add_library(rd_framework_cpp SHARED
         #base
         base/IRdBindable.h
         base/IRdReactive.h
@@ -66,6 +65,11 @@ add_library(rd_framework_cpp STATIC
         #pch
         ${PCH_CPP_OPT})
 
+include(GenerateExportHeader)
+generate_export_header(rd_framework_cpp
+        BASE_NAME rd_framework
+        EXPORT_MACRO_NAME RD_FRAMEWORK_API)
+
 message(STATUS "Using pch by rd_framework: '${ENABLE_PCH_HEADERS}'")
 
 if (ENABLE_PCH_HEADERS)
@@ -78,15 +82,15 @@ add_subdirectory(util)
 target_include_directories(rd_framework_cpp
         PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_BINARY_DIR}
         )
 
 target_link_libraries(rd_framework_cpp
         PUBLIC rd_core_cpp rd_framework_cpp_util rd_gen_cpp clsocket
         )
 
-if (UNIX)
-    target_link_libraries(rd_framework_cpp PRIVATE pthread)
-endif ()
+find_package(Threads REQUIRED)
+target_link_libraries(rd_framework_cpp PRIVATE Threads::Threads)
 
 if (WIN32)
     if ("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
@@ -94,10 +98,11 @@ if (WIN32)
     elseif ("${CMAKE_SIZEOF_VOID_P}" STREQUAL "8")
         SET(PLATFORM "x64")
     endif ()
-    install(TARGETS rd_framework_cpp rd_core_cpp rd_framework_cpp_util clsocket spdlog
+    install(TARGETS rd_framework_cpp rd_core_cpp
             CONFIGURATIONS Release Debug
-            ARCHIVE
-            DESTINATION "${CMAKE_INSTALL_LIBS}/Win/${PLATFORM}/$<CONFIG>/"
+            ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBS}/Win/${PLATFORM}/$<CONFIG>/"
+            RUNTIME DESTINATION "${CMAKE_INSTALL_LIBS}/Win/${PLATFORM}/$<CONFIG>/"
+            LIBRARY DESTINATION "${CMAKE_INSTALL_LIBS}/Win/${PLATFORM}/$<CONFIG>/"
             )
 endif ()
 
@@ -109,5 +114,8 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
         PATTERN *.hpp
         )
 
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/rd_framework_export.h
+        DESTINATION "${CMAKE_INSTALL_PUBLIC_HEADER}/rd_framework_cpp"
+        )
 #target_compile_options(rd_framework_cpp PUBLIC -ftemplate-backtrace-limit=100)
 #target_link_options(rd_framework_cpp PUBLIC -fdiagnostics-show-template-tree)

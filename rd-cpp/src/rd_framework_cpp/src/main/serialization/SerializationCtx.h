@@ -11,6 +11,8 @@
 #include <utility>
 #include <regex>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
 // region predeclared
@@ -24,7 +26,7 @@ class InternRoot;
 class RdBindableBase;
 // endregion
 
-class SerializationCtx
+class RD_FRAMEWORK_API SerializationCtx
 {
 	Serializers const* serializers = nullptr;
 

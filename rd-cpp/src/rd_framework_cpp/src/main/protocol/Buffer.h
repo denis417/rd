@@ -12,12 +12,14 @@
 #include <functional>
 #include <memory>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
 /**
  * \brief Simple data buffer. Allows to "SerDes" plenty of types, such as integrals, arrays, etc.
  */
-class Buffer final
+class RD_FRAMEWORK_API Buffer final
 {
 public:
 	friend class PkgInputStream;

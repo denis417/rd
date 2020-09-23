@@ -14,6 +14,8 @@
 #include <string>
 #include <mutex>
 
+#include <rd_framework_export.h>
+
 #pragma warning(push)
 #pragma warning(disable : 4250)
 
@@ -28,7 +30,7 @@ class Identities;
 /**
  * \brief Node in graph for storing interned objects.
  */
-class InternRoot final : public RdReactiveBase
+class RD_FRAMEWORK_API InternRoot final : public RdReactiveBase
 {
 private:
 	// template<typename T>

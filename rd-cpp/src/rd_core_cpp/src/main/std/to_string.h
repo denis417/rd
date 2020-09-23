@@ -11,23 +11,25 @@
 
 #include "thirdparty.hpp"
 
+#include <rd_core_export.h>
+
 namespace rd
 {
 namespace detail
 {
 using std::to_string;
 
-std::string to_string(std::string const& val);
+std::string RD_CORE_API to_string(std::string const& val);
 
-std::string to_string(char const val[]);
+std::string RD_CORE_API to_string(char const val[]);
 
-std::string to_string(std::wstring const& val);
+std::string RD_CORE_API to_string(std::wstring const& val);
 
-std::string to_string(std::thread::id const& id);
+std::string RD_CORE_API to_string(std::thread::id const& id);
 
-std::string to_string(std::exception const& e);
+std::string RD_CORE_API to_string(std::exception const& e);
 
-std::string to_string(std::future_status const& status);
+std::string RD_CORE_API to_string(std::future_status const& status);
 
 template <typename Rep, typename Period>
 inline std::string to_string(std::chrono::duration<Rep, Period> const& time)
@@ -87,7 +89,7 @@ std::string as_string(T const& t)
 
 using std::to_wstring;
 
-std::wstring to_wstring(std::string const& s);
+std::wstring RD_CORE_API to_wstring(std::string const& s);
 
 template <class T>
 std::wstring as_wstring(T const& t)

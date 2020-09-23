@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include <rd_core_export.h>
+
 namespace rd
 {
 enum class AddRemove
@@ -11,7 +13,7 @@ enum class AddRemove
 	REMOVE
 };
 
-std::string to_string(AddRemove kind);
+std::string RD_CORE_API to_string(AddRemove kind);
 
 enum class Op
 {
@@ -21,7 +23,7 @@ enum class Op
 	ACK
 };
 
-std::string to_string(Op op);
+std::string RD_CORE_API to_string(Op op);
 }	 // namespace rd
 
 #endif	  // RD_CPP_VIEWABLE_COLLECTIONS_H

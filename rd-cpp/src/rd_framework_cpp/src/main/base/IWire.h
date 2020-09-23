@@ -5,12 +5,14 @@
 #include "base/IRdReactive.h"
 #include "reactive/Property.h"
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
 /**
  * \brief Sends and receives serialized object data over a network or a similar connection.
  */
-class IWire
+class RD_FRAMEWORK_API IWire
 {
 public:
 	Property<bool> connected{false};

@@ -15,6 +15,8 @@
 #include <iostream>
 #include <unordered_set>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
 // region predeclared
@@ -22,7 +24,7 @@ namespace rd
 class SerializationCtx;
 // endregion
 
-class Serializers
+class RD_FRAMEWORK_API Serializers
 {
 private:
 	static RdId real_rd_id(IUnknownInstance const& value);

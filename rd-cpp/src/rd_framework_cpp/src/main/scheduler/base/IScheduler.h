@@ -4,12 +4,14 @@
 #include <functional>
 #include <thread>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
 /**
  * \brief Allows to queue the execution of actions on a different thread.
  */
-class IScheduler
+class RD_FRAMEWORK_API IScheduler
 {
 protected:
 	std::thread::id thread_id;

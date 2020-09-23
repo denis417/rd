@@ -32,7 +32,9 @@ elseif (MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
     add_compile_options(/wd4996     # POSIX name is deprecated
-                        /wd4250)    # method inheritance via dominance
+                        /wd4250     # method inheritance via dominance
+                        /wd4251
+            )
 endif ()
 
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)

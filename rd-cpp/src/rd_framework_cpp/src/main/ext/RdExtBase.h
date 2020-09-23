@@ -6,6 +6,8 @@
 
 #include "spdlog/spdlog.h"
 
+#include <rd_framework_export.h>
+
 #pragma warning(push)
 #pragma warning(disable : 4250)
 namespace rd
@@ -13,7 +15,7 @@ namespace rd
 /**
  * \brief Base class for creating extension node according to bottom-up design.
  */
-class RdExtBase : public RdReactiveBase
+class RD_FRAMEWORK_API RdExtBase : public RdReactiveBase
 {
 	std::shared_ptr<ExtWire> extWire = std::make_shared<ExtWire>();
 	mutable std::shared_ptr<IProtocol> extProtocol /* = nullptr*/;

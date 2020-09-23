@@ -7,9 +7,11 @@
 #include <functional>
 #include <type_traits>
 
+#include <rd_core_export.h>
+
 namespace rd
 {
-class LifetimeDefinition
+class RD_CORE_API LifetimeDefinition
 {
 private:
 	friend class SequentialLifetimes;
@@ -18,8 +20,6 @@ private:
 
 public:
 	Lifetime lifetime;
-
-	LifetimeDefinition() = delete;
 
 	explicit LifetimeDefinition(bool is_eternal = false);
 

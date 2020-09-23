@@ -11,11 +11,13 @@
 #include <future>
 #include <list>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
 using sequence_number_t = int64_t;
 
-class ByteBufferAsyncProcessor
+class RD_FRAMEWORK_API ByteBufferAsyncProcessor
 {
 public:
 	enum class StateKind

@@ -9,9 +9,11 @@
 #include <mutex>
 #include <functional>
 
+#include <rd_framework_export.h>
+
 namespace rd
 {
-class ExtWire final : public IWire
+class RD_FRAMEWORK_API ExtWire final : public IWire
 {
 	mutable std::mutex lock;
 
